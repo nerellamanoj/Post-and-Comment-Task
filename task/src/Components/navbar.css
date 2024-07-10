@@ -1,0 +1,49 @@
+/* navbar.css */
+
+nav {
+    width: 100%;
+    background-color: lightgray;
+    display: flex;
+    height: 105px;
+    align-items: center;
+    padding: 0 20px; 
+  }
+  
+  nav img {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px; 
+  }
+  a{
+    text-decoration: none;
+  }
+  
+  ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-grow: 1; 
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  li {
+    padding: 5px;
+    font-size: 15px;
+  }
+  
+  .login {
+    width: 80px;
+    background-color: lightgray;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .login:hover {
+    background-color: gray; /* Adjust hover background color as desired */
+  }
+  

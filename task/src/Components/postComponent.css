@@ -1,0 +1,39 @@
+.posttable {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+
+.posttable th,
+.posttable td {
+  border: 1px solid #d61f1f;
+  padding: 8px;
+
+  text-align: center;
+}
+.buttons-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+tr {
+  border: 1px solid black;
+}
+.button1 {
+  font-size: 20px;
+   border-radius: 10px;
+  background-color: gray;
+}
+button {
+  width: 120px;
+  
+  font-size: 20px;
+  height: 50px;
+  margin: 20px;
+  color: black;
+  border-radius: 10px;
+  background-color: gray;
+}
