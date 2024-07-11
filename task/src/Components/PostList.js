@@ -18,7 +18,7 @@ const PostDetails = () => {
   }, [postId]);
 
   if (!post) {
-    return 
+    return null
   }
 
   return (

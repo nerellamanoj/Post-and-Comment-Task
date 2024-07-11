@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
-import './postComponent.css'; 
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
+import "./postComponent.css";
+import AddPost from "./AddPost"; // Import AddPost component
 
 const PostComponent = () => {
   const [posts, setPosts] = useState([]);
@@ -9,19 +10,21 @@ const PostComponent = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
     if (!loggedInUser) {
-      navigate('/login'); 
+      navigate("/login");
       return;
     }
 
     setIsLoading(true);
-    axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${loggedInUser.id}`)
-      .then(response => {
+    axios
+      .get(`https://jsonplaceholder.typicode.com/posts?userId=${loggedInUser.id}`
+      )
+      .then((response) => {
         setPosts(response.data);
       })
-      .catch(error => {
-        console.error('Error fetching posts:', error);
+      .catch((error) => {
+        console.error("Error fetching posts:", error);
       })
       .finally(() => {
         setIsLoading(false);
@@ -33,26 +36,24 @@ const PostComponent = () => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('loggedInUser'); // Remove logged-in user data on logout
-    alert('Logged out successfully');
-    navigate('/');
+    localStorage.removeItem("loggedInUser"); // Remove logged-in user data on logout
+    alert("Logged out successfully");
+    navigate("/");
   };
 
   return (
-    <div >
+    <div>
       <div className="buttons-container">
         <div>
-        <button className='button1'>
-          <Link to="/addpost">
-            ADD POST
-          </Link>
-        </button>
+          <button className="button1">
+            <Link to="/addpost">ADD POST</Link>
+          </button>
         </div>
-       <div>
-       <button className='button' onClick={handleLogout}>
-          Logout
-        </button>
-       </div>
+        <div>
+          <button className="button" onClick={handleLogout}>
+            Logout
+          </button>
+        </div>
       </div>
       {isLoading ? (
         <p>Loading posts...</p>
@@ -66,7 +67,7 @@ const PostComponent = () => {
             </tr>
           </thead>
           <tbody>
-            {posts.map(post => (
+            {posts.map((post) => (
               <tr key={post.id}>
                 <td>{post.id}</td>
                 <td>
@@ -80,6 +81,8 @@ const PostComponent = () => {
           </tbody>
         </table>
       )}
+      
+      <AddPost onAddPost={handleAddPost} />
     </div>
   );
 };

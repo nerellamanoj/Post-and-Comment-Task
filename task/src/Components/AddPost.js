@@ -16,8 +16,7 @@ const AddPost = ({ onAddPost }) => {
     try {
       const newPost = { title, body };
       const response = await axios.post('https://jsonplaceholder.typicode.com/posts', newPost);
-      console.log( response.data);
-      onAddPost(response.data); 
+      onAddPost(response.data);
       setTitle('');
       setBody('');
     } catch (error) {
