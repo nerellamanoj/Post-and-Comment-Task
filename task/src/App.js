@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import axios from 'axios';
+// import axios from 'axios';
 import PostComponent from './Components/PostComponent';
 import PostDetails from './Components/PostList';
 import Comment from './Components/Comment';

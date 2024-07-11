@@ -11,7 +11,7 @@ const PostComponent = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+    const loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser'));
     if (!loggedInUser) {
       navigate('/login');
       return;
@@ -33,12 +33,12 @@ const PostComponent = () => {
 
   const handleAddPost = (newPost) => {
     const nextId = Math.max(...posts.map(post => post.id)) + 1;
-    const updatedPost = { ...newPost, id: nextId, userId: JSON.parse(localStorage.getItem('loggedInUser')).id };
+    const updatedPost = { ...newPost, id: nextId, userId: JSON.parse(sessionStorage.getItem('loggedInUser')).id };
     setPosts([...posts, updatedPost]);
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('loggedInUser'); 
+    sessionStorage.removeItem('loggedInUser'); 
     alert('Logged out successfully');
     navigate('/login');
   };

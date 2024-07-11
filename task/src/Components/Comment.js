@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import './comments.css';
+import { useNavigate } from 'react-router-dom';
 
 const Comment = () => {
   const [commentsList, setCommentsList] = useState([]);
   const [newComment, setNewComment] = useState('');
   const { postId } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios.get(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
@@ -32,6 +34,11 @@ const Comment = () => {
       setCommentsList([...commentsList, newCommentObj]);
       setNewComment('');
     }
+  };
+  const handleLogout = () => {
+    sessionStorage.removeItem('loggedInUser'); 
+    alert('Logged out successfully');
+    navigate('/login');
   };
 
   return (
