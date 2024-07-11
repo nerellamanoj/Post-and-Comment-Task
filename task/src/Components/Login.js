@@ -23,6 +23,8 @@ const Login = () => {
         alert("Login sussesfully");
         navigate('/post'); 
         
+      }else{
+        alert("Invalid Credentilas")
       }
 
      

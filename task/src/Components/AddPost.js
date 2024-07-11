@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import "./addpost.css";
+import './addpost.css';
 
 const AddPost = ({ onAddPost }) => {
   const [title, setTitle] = useState('');
@@ -16,12 +16,12 @@ const AddPost = ({ onAddPost }) => {
     try {
       const newPost = { title, body };
       const response = await axios.post('https://jsonplaceholder.typicode.com/posts', newPost);
-      onAddPost(response.data);
+      onAddPost(response.data); 
       setTitle('');
       setBody('');
     } catch (error) {
       console.error('Error adding post:', error);
-      setError('Failed to add post. Please try again.'); 
+      setError('Failed to add post. Please try again.');
     } finally {
       setIsLoading(false);
     }
@@ -31,9 +31,9 @@ const AddPost = ({ onAddPost }) => {
     setTitle(e.target.value);
   };
 
-  const handleBodyChange = (e) => {
-    setBody(e.target.value);
-  };
+  // const handleBodyChange = (e) => {
+  //   setBody(e.target.value);
+  // };
 
   return (
     <div className='container'>
@@ -49,14 +49,14 @@ const AddPost = ({ onAddPost }) => {
               required
             />
           </div>
-          <div>
+          {/* <div>
             <label>Body:</label>
             <textarea
               value={body}
               onChange={handleBodyChange}
               required
             />
-          </div>
+          </div> */}
           {error && <p className="error-message">{error}</p>}
           <button className='button1' type="submit">
             {isLoading ? 'Adding...' : 'Submit'}
