@@ -14,7 +14,7 @@ const Comment = () => {
         setCommentsList(response.data);
       })
       .catch(error => {
-        console.error('Error fetching comments: ', error);
+        console.error('Error fetching: ', error);
       });
   }, [postId]);
 
@@ -48,7 +48,13 @@ const Comment = () => {
       </form>
       {commentsList.map(comment => (
         <div key={comment.id}>
-          <p>{comment.body}</p>
+          <table>
+            <tr>
+              <td>
+            {comment.body}
+          </td>
+            </tr>
+          </table>
         </div>
       ))}
     </div>
