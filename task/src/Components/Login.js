@@ -39,7 +39,7 @@ const Login = () => {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="container">
         <form className="login-form" onSubmit={handleSubmit}>
           <label htmlFor="username">Username:</label>
@@ -64,7 +64,7 @@ const Login = () => {
           />
           <br />
 
-          <button type="submit">Submit</button>
+          <button type="submit">Login</button>
           {error && <p className="error-message">{error}</p>}
         </form>
       </div>
